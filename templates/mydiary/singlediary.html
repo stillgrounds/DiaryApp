@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container"></div>
+    <h5 style="margin-top:.5em; margin-left: .5em;">You have selected a diary with id <strong>{{show.id}}</strong></h5>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>content</th>
+                <th>Date Created</th>
+                <th colpan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if show %}
+                <tr>
+                  <td>{{show.id}}</td>
+                  <td>{{show.text}}</td>
+                  <td>{{show.date_created}}</td>
+                  <td><a href="{% url 'updatediary' show.id %}" class="btn btn-success">Update</a> </td>
+                  <td><a href="" class="btn btn-danger" 
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal">Delete</a> </td>                    
+                </tr>
+            {% else %}
+                <td>No data</td>
+            {% endif %}
+        </tbody>
+    </table>
+
+    <!-- Button trigger modal -->
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" 
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Delete Info</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete id {{show.id}}?
+          </div>
+          <div class="modal-footer">
+            <a href="{% url 'showdiary' %}" class="btn btn-secondary">No</a>
+            <a href="{% url 'deletediary' show.id %}" class="btn btn-primary">Yes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% endblock content %}
+
+
+
+
+
+
+
+
+
+        </tbody>
+
+
+
+
+
+    </body>

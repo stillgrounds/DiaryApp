@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block olamide %}
+ 
+ <h2>Welcome to About page</h2>
+ 
+ {{result}}
+
+{{fruit}}
+
+{{people}}
+
+<ul>
+    {% for items in fruits %}
+       <li>{{items}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock olamide %}
+
+
+    
+    
